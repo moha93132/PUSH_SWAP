@@ -6,27 +6,26 @@
 /*   By: mohasnao <mohasnao@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 16:50:22 by mohasnao          #+#    #+#             */
-/*   Updated: 2026/10/10 20:28:16 by mohasnao         ###   ########.ch       */
+/*   Updated: 2026/10/11 17:41:37 by mohasnao         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	compute_disorder(int *a)
+int	compute_disorder(int *a, int n)
 {
 	int	mistakes;
 	int	total_pairs;
 	int	i;
-	int	j;
 
-	i = 0;
 	mistakes = 0;
-	total_pairs = 0;
-	while (i < size(a) - 1)
+	total_pairs = n - 1;
+	i = 0;
+	if (n < 2)
+		return (0);
+	while (i < n - 1)
 	{
-		j = i + 1;
-		total_pairs++;
-		if (a[i] > a[j])
+		if (a[i] > a[i + 1])
 			mistakes++;
 		i++;
 	}
@@ -35,5 +34,23 @@ int	compute_disorder(int *a)
 
 int	ft_error(void)
 {
+	ft_putstr_fd("Error\n", 2);
 	return (1);
+}
+
+void	ft_free_stack(t_node **stack)
+{
+	t_node	*current;
+	t_node	*next;
+
+	if (!stack)
+		return ;
+	current = *stack;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	*stack = NULL;
 }

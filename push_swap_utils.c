@@ -6,7 +6,7 @@
 /*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 15:00:05 by mluvisot          #+#    #+#             */
-/*   Updated: 2026/10/10 20:29:20 by mohasnao         ###   ########.ch       */
+/*   Updated: 2026/10/11 17:20:42 by mohasnao         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ long	ft_atol(char *s)
 	res = 0;
 	sign = 1;
 	i = 0;
+	if (ft_strlen(s) > 11)
+		return (2147483648L);
 	if (s[i] == '-' || s[i] == '+')
 	{
 		if (s[i] == '-')
@@ -89,7 +91,7 @@ static int	ft_add_back(t_node **a, int value)
 	return (1);
 }
 
-void	ft_init(t_node **a, int argc, char **argv)
+int	ft_init(t_node **a, int argc, char **argv)
 {
 	int		i;
 	long	nbr;
@@ -98,14 +100,15 @@ void	ft_init(t_node **a, int argc, char **argv)
 	while (i < argc)
 	{
 		if (!ft_is_number(argv[i]))
-			ft_error();
+			return (ft_free_stack(a), ft_error());
 		nbr = ft_atol(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
-			ft_error();
+			return (ft_free_stack(a), ft_error());
 		if (ft_has_dup(*a, (int)nbr))
-			ft_error();
+			return (ft_free_stack(a), ft_error());
 		if (!ft_add_back(a, (int)nbr))
-			ft_error();
+			return (ft_free_stack(a), ft_error());
 		i++;
 	}
+	return (0);
 }

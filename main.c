@@ -6,7 +6,7 @@
 /*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 13:25:36 by mluvisot          #+#    #+#             */
-/*   Updated: 2026/10/10 20:26:50 by mohasnao         ###   ########.ch       */
+/*   Updated: 2026/10/11 16:55:03 by mohasnao         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int	main(int argc, char **argv)
 		return (0);
 	a = NULL;
 	b = NULL;
-	ft_init(&a, argc, argv);
+	if (ft_init(&a, argc, argv))
+		return (1);
 }
