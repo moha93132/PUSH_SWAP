@@ -6,7 +6,7 @@
 /*   By: mohasnao <mohasnao@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 16:35:10 by mohasnao          #+#    #+#             */
-/*   Updated: 2026/10/11 17:42:47 by mohasnao         ###   ########.ch       */
+/*   Updated: 2026/10/15 14:28:54 by mohasnao         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ long	ft_atol(char *s);
 int		ft_is_number(char *s);
 int		ft_has_dup(t_node *a, int value);
 int		ft_init(t_node **a, int argc, char **argv);
+int		stack_size(t_node *a);
 
 /* Error */
 int		ft_error(void);
@@ -48,7 +49,7 @@ void	rrb(t_node **b);
 void	rrr(t_node **a, t_node **b);
 
 /* Algorithmes de tri */
-void	simple_algorithme(int *a, int n);
-int		medium_algorithme(int *a, int n);
+void	simple_algorithme(t_node **a, t_node **b);
+void	medium_algorithme(t_node **a, t_node **b);
 int		compute_disorder(int *a, int n);
 #endif
