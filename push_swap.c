@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohasnao <mohasnao@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 16:34:06 by mohasnao          #+#    #+#             */
-/*   Updated: 2026/10/10 20:27:12 by mohasnao         ###   ########.ch       */
+/*   Updated: 2026/10/15 15:13:25 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,22 @@ void	simple_algorithme(int *a, int n)
 	}
 }
 
-int	medium_algorithme(int *a, int n)
+
+
+void	medium_algorithme(t_node **a, t_node **b)
 {
+	int	n;
+	int	nbr_bits;
+	int	bit;
+
+	n = stack_size(*a);
+	init_radix(*a);
+	init_rank(*a,n);
+	nbr_bits = get_nbr_bits(n);
+	bit = 0;
+	while (bit < nbr_bits)
+	{
+		radix_pass(a, b, n, bit);
+		bit++;
+	}
 }
