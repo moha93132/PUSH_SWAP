@@ -50,6 +50,10 @@ void	simple_algorithme(int *a, int n)
 
 void	medium_algorithme(t_node **a, t_node **b)
 {
+
+}
+void	hard_algorithme(t_node **a, t_node **b)
+{
 	int	n;
 	int	nbr_bits;
 	int	bit;
@@ -65,4 +69,5 @@ void	medium_algorithme(t_node **a, t_node **b)
 		bit++;
 	}
 }
+
 >>>>>>> mluvisot
