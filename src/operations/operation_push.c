@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   operation_push.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohasnao <mohasnao@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/10 21:51:42 by mohasnao          #+#    #+#             */
-/*   Updated: 2026/10/10 21:57:11 by mohasnao         ###   ########.ch       */
+/*   Updated: 2026/10/19 14:26:34 by mluvisot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
-static int	ft_push(t_node **src, t_node **dst)
+static int ft_push(t_node **src, t_node **dst)
 {
-	t_node	*node;
+	t_node *node;
 
 	if (!src || !*src)
 		return (0);
@@ -25,14 +25,14 @@ static int	ft_push(t_node **src, t_node **dst)
 	return (1);
 }
 
-void	pa(t_node **a, t_node **b)
+void pa(t_node **a, t_node **b)
 {
 	if (ft_push(b, a))
-		ft_putstr("pa\n", 1);
+		write(1, "pa\n", 3);
 }
 
-void	pb(t_node **a, t_node **b)
+void pb(t_node **a, t_node **b)
 {
 	if (ft_push(a, b))
-		ft_putstr("pb\n", 1);
+		write(1, "pb\n", 3);
 }

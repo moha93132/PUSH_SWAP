@@ -6,15 +6,15 @@
 /*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 13:25:36 by mluvisot          #+#    #+#             */
-/*   Updated: 2026/10/19 12:12:03 by mluvisot         ###   ########.fr       */
+/*   Updated: 2026/10/19 14:44:15 by mluvisot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "includes/push_swap.h"
 
-int	ft_get_mod(int argc, char **argv, char *mode, int *bench)
+int ft_get_mod(int argc, char **argv, char *mode, int *bench)
 {
-	int	i;
+	int i;
 
 	i = 1;
 	while (i < argc && ft_strncmp(argv[i], "--", 2) == 0)
@@ -38,13 +38,13 @@ int	ft_get_mod(int argc, char **argv, char *mode, int *bench)
 	return (i);
 }
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	t_node	*a;
-	t_node	*b;
-	char	mode;
-	int		bench;
-	int		i;
+	t_node *a;
+	t_node *b;
+	char mode;
+	int bench;
+	int i;
 
 	if (argc < 2)
 		return (0);
@@ -52,16 +52,15 @@ int	main(int argc, char **argv)
 	bench = 0;
 	i = ft_get_mod(argc, argv, &mode, &bench);
 	if (i == -1)
-	{
-		ft_error("erreur le mode selctionne n'existe pas");
-		return (1);
-	}
+		return (ft_error());
 	if (i == argc)
 		return (0);
 	a = NULL;
 	b = NULL;
 	if (ft_init(&a, argc, argv, i))
 		return (1);
-	ft_start(mode ,a, b)
+	ft_start(mode, &a, &b);
+	ft_free_stack(&a);
+	ft_free_stack(&b);
 	return (0);
 }

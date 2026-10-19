@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   algorithme_simple.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohasnao <mohasnao@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 12:05:23 by mohasnao          #+#    #+#             */
-/*   Updated: 2026/10/15 14:28:07 by mohasnao         ###   ########.ch       */
+/*   Updated: 2026/10/19 14:24:27 by mluvisot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
-int	stack_size(t_node *a)
+int stack_size(t_node *a)
 {
-	int	size;
+	int size;
 
 	size = 0;
 	while (a)
@@ -24,7 +24,7 @@ int	stack_size(t_node *a)
 	}
 	return (size);
 }
-
+/*
 static void	add_index(t_node *a)
 {
 	t_node	*current;
@@ -46,10 +46,11 @@ static void	add_index(t_node *a)
 		current = current->next;
 	}
 }
+*/
 
-static int	find_index_position(t_node *a, int index)
+int find_index_position(t_node *a, int index)
 {
-	int	position;
+	int position;
 
 	position = 0;
 	while (a)
@@ -62,11 +63,11 @@ static int	find_index_position(t_node *a, int index)
 	return (-1);
 }
 
-void	simple_algorithme(t_node **a, t_node **b)
+void simple_algorithme(t_node **a, t_node **b)
 {
-	int	index;
-	int	position;
-	int	size_a;
+	int index;
+	int position;
+	int size_a;
 
 	index = 0;
 	while (*a)

@@ -6,11 +6,11 @@
 /*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 15:12:10 by marco             #+#    #+#             */
-/*   Updated: 2026/10/19 12:19:12 by mluvisot         ###   ########.fr       */
+/*   Updated: 2026/10/19 14:24:17 by mluvisot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 static int	get_nbr_bits(int n)
 {
@@ -20,19 +20,6 @@ static int	get_nbr_bits(int n)
 	while (((n - 1) >> bits) != 0)
 		bits++;
 	return (bits);
-}
-
-int	stack_size(t_node *node)
-{
-	int	size;
-
-	size = 0;
-	while (node)
-	{
-		size++;
-		node = node->next;
-	}
-	return (size);
 }
 
 void	init_radix(t_node *node)
@@ -82,7 +69,7 @@ void	radix_pass(t_node **a, t_node **b, int n, int bit)
 		pa(a, b);
 }
 
-void	hard_algorithme(t_node **a, t_node **b)
+void	complex_algorithme(t_node **a, t_node **b)
 {
 	int	n;
 	int	nbr_bits;

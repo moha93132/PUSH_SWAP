@@ -1,8 +1,10 @@
-long	ft_atol(char *s)
+#include "../../includes/push_swap.h"
+
+long ft_atol(char *s)
 {
-	long	res;
-	int		sign;
-	int		i;
+	long res;
+	int sign;
+	int i;
 
 	res = 0;
 	sign = 1;
@@ -25,9 +27,9 @@ long	ft_atol(char *s)
 	return (res * sign);
 }
 
-int	ft_is_number(char *s)
+int ft_is_number(char *s)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	if (s[i] == '-' || s[i] == '+')

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   algorithme_moyen.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohasnao <mohasnao@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 12:27:49 by mohasnao          #+#    #+#             */
-/*   Updated: 2026/10/15 14:23:10 by mohasnao         ###   ########.ch       */
+/*   Updated: 2026/10/19 14:24:22 by mluvisot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 static int	get_chunk_size(int size)
 {

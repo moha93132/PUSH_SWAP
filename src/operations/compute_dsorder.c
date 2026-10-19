@@ -3,48 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   compute_dsorder.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohasnao <mohasnao@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 16:50:22 by mohasnao          #+#    #+#             */
-/*   Updated: 2026/10/15 12:26:12 by mohasnao         ###   ########.ch       */
+/*   Updated: 2026/10/19 14:24:09 by mluvisot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
-int	compute_disorder(int *a, int n)
+int compute_disorder(t_node *a, int n)
 {
-	int	mistakes;
-	int	total_pairs;
-	int	i;
+	t_node *cmp;
+	long mistakes;
+	long total_pairs;
 
-	mistakes = 0;
-	total_pairs = n - 1;
-	i = 0;
 	if (n < 2)
 		return (0);
-	while (i < n - 1)
+	mistakes = 0;
+	total_pairs = 0;
+	cmp = a->next;
+	while (cmp)
 	{
-		if (a[i] > a[i + 1])
+		if (a->value > cmp->value)
 			mistakes++;
-		i++;
+		total_pairs++;
+		a = a->next;
+		cmp = a->next;
 	}
-	return (mistakes * 100 / total_pairs);
+	return ((int)(mistakes * 100 / total_pairs));
 }
 
-int	ft_error(void)
+int ft_error(void)
 {
 	ft_putstr_fd("Error\n", 2);
 	return (1);
 }
 
-void	ft_free_stack(t_node **stack)
+void ft_free_stack(t_node **stack)
 {
-	t_node	*current;
-	t_node	*next;
+	t_node *current;
+	t_node *next;
 
 	if (!stack)
-		return ;
+		return;
 	current = *stack;
 	while (current)
 	{

@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   operation_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohasnao <mohasnao@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/10 21:28:37 by mohasnao          #+#    #+#             */
-/*   Updated: 2026/10/10 21:50:19 by mohasnao         ###   ########.ch       */
+/*   Updated: 2026/10/19 14:24:02 by mluvisot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
-static int	ft_swap(t_node **stack)
+static int ft_swap(t_node **stack)
 {
-	t_node	*first;
-	t_node	*second;
+	t_node *first;
+	t_node *second;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return (0);
@@ -27,22 +27,22 @@ static int	ft_swap(t_node **stack)
 	return (1);
 }
 
-void	sa(t_node **a)
+void sa(t_node **a)
 {
 	if (ft_swap(a))
-		ft_putstr("sa\n", 1);
+		write(1, "sa\n", 3);
 }
 
-void	sb(t_node **b)
+void sb(t_node **b)
 {
 	if (ft_swap(b))
-		ft_putstr("sb\n", 1);
+		write(1, "sb\n", 3);
 }
 
-void	ss(t_node **a, t_node **b)
+void ss(t_node **a, t_node **b)
 {
-	int	swap_a;
-	int	swap_b;
+	int swap_a;
+	int swap_b;
 
 	swap_a = ft_swap(a);
 	swap_b = ft_swap(b);

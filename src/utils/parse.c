@@ -6,13 +6,13 @@
 /*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 15:00:05 by mluvisot          #+#    #+#             */
-/*   Updated: 2026/10/19 12:20:48 by mluvisot         ###   ########.fr       */
+/*   Updated: 2026/10/19 14:44:44 by mluvisot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
-int	ft_has_dup(t_node *a, int value)
+int ft_has_dup(t_node *a, int value)
 {
 	while (a)
 	{
@@ -23,10 +23,10 @@ int	ft_has_dup(t_node *a, int value)
 	return (0);
 }
 
-static int	ft_add_back(t_node **a, int value)
+static int ft_add_back(t_node **a, int value)
 {
-	t_node	*new;
-	t_node	*last;
+	t_node *new;
+	t_node *last;
 
 	new = malloc(sizeof(t_node));
 	if (!new)
@@ -46,12 +46,12 @@ static int	ft_add_back(t_node **a, int value)
 	return (1);
 }
 
-int	ft_init(t_node **a, int argc, char **argv)
+int ft_init(t_node **a, int argc, char **argv, int start)
 {
-	int		i;
-	long	nbr;
+	int i;
+	long nbr;
 
-	i = 1;
+	i = start;
 	while (i < argc)
 	{
 		if (!ft_is_number(argv[i]))
