@@ -6,23 +6,44 @@
 /*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 12:27:49 by mohasnao          #+#    #+#             */
-/*   Updated: 2026/10/19 14:24:22 by mluvisot         ###   ########.fr       */
+/*   Updated: 2026/10/19 15:50:35 by mluvisot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static int	get_chunk_size(int size)
+static int get_chunk_size(int size)
 {
 	if (size <= 100)
 		return (15);
 	return (30);
 }
-
-static int	valid_indices(t_node *a, int size)
+static void add_index(t_node *a)
 {
-	t_node	*current;
-	t_node	*compare;
+	t_node *current;
+	t_node *compare;
+	int index;
+
+	current = a;
+	while (current)
+	{
+		index = 0;
+		compare = a;
+		while (compare)
+		{
+			if (compare->value < current->value)
+				index++;
+			compare = compare->next;
+		}
+		current->index = index;
+		current = current->next;
+	}
+}
+
+static int valid_indices(t_node *a, int size)
+{
+	t_node *current;
+	t_node *compare;
 
 	current = a;
 	while (current)
@@ -41,10 +62,10 @@ static int	valid_indices(t_node *a, int size)
 	return (1);
 }
 
-static void	push_chunk(t_node **a, t_node **b, int max_index, int chunk_size)
+static void push_chunk(t_node **a, t_node **b, int max_index, int chunk_size)
 {
-	int	scan_size;
-	int	i;
+	int scan_size;
+	int i;
 
 	scan_size = stack_size(*a);
 	i = 0;
@@ -62,11 +83,11 @@ static void	push_chunk(t_node **a, t_node **b, int max_index, int chunk_size)
 	}
 }
 
-static void	sort_back(t_node **a, t_node **b, int total_size)
+static void sort_back(t_node **a, t_node **b, int total_size)
 {
-	int	max_index;
-	int	position;
-	int	size_b;
+	int max_index;
+	int position;
+	int size_b;
 
 	max_index = total_size - 1;
 	while (*b)
@@ -89,17 +110,18 @@ static void	sort_back(t_node **a, t_node **b, int total_size)
 	}
 }
 
-void	medium_algorithme(t_node **a, t_node **b)
+void medium_algorithme(t_node **a, t_node **b)
 {
-	int	total_size;
-	int	chunk_size;
-	int	max_index;
+	int total_size;
+	int chunk_size;
+	int max_index;
 
 	if (!a || !b || !*a || *b)
-		return ;
+		return;
 	total_size = stack_size(*a);
+	add_index(*a);
 	if (total_size <= 1 || !valid_indices(*a, total_size))
-		return ;
+		return;
 	chunk_size = get_chunk_size(total_size);
 	max_index = chunk_size - 1;
 	if (max_index >= total_size)
@@ -108,7 +130,7 @@ void	medium_algorithme(t_node **a, t_node **b)
 	{
 		push_chunk(a, b, max_index, chunk_size);
 		if (!*a || max_index >= total_size - 1)
-			break ;
+			break;
 		if (max_index + chunk_size >= total_size)
 			max_index = total_size - 1;
 		else

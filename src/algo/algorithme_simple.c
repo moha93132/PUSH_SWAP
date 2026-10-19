@@ -6,7 +6,7 @@
 /*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 12:05:23 by mohasnao          #+#    #+#             */
-/*   Updated: 2026/10/19 14:24:27 by mluvisot         ###   ########.fr       */
+/*   Updated: 2026/10/19 15:51:40 by mluvisot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,29 +24,6 @@ int stack_size(t_node *a)
 	}
 	return (size);
 }
-/*
-static void	add_index(t_node *a)
-{
-	t_node	*current;
-	t_node	*compare;
-	int		index;
-
-	current = a;
-	while (current)
-	{
-		index = 0;
-		compare = a;
-		while (compare)
-		{
-			if (compare->value < current->value)
-				index++;
-			compare = compare->next;
-		}
-		current->index = index;
-		current = current->next;
-	}
-}
-*/
 
 int find_index_position(t_node *a, int index)
 {
