@@ -6,13 +6,13 @@
 /*   By: mohasnao <mohasnao@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 12:18:43 by mohasnao          #+#    #+#             */
-/*   Updated: 2026/10/06 15:04:21 by mohasnao         ###   ########.ch       */
+/*   Updated: 2026/10/10 19:04:52 by mohasnao         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	occ_c(char const *s, char c)
+static int	occ_c(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -21,23 +21,21 @@ int	occ_c(char const *s, char c)
 	count = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
 			count++;
 		i++;
 	}
-	if (s[i - 1] != c)
-		count++;
 	return (count);
 }
 
-int	word_end(char const *s, int i, char c)
+static int	word_end(char const *s, int i, char c)
 {
 	while (s[i] && s[i] != c)
 		i++;
 	return (i);
 }
 
-char	**free_split(char **str, int x)
+static char	**free_split(char **str, int x)
 {
 	while (x > 0)
 	{

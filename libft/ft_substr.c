@@ -6,7 +6,7 @@
 /*   By: mohasnao <mohasnao@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 12:19:36 by mohasnao          #+#    #+#             */
-/*   Updated: 2026/10/06 15:07:04 by mohasnao         ###   ########.ch       */
+/*   Updated: 2026/10/10 03:10:10 by mohasnao         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 
 	i = 0;
+	if (ft_strlen(s) < start)
+	{
+		str = malloc(sizeof(char));
+		if (!str)
+			return (NULL);
+		str[0] = '\0';
+		return (str);
+	}
 	str = malloc((ft_strlen(s) - start + 1) * sizeof(char));
 	if (!str)
 		return (NULL);

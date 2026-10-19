@@ -6,7 +6,7 @@
 /*   By: mohasnao <mohasnao@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 12:11:25 by mohasnao          #+#    #+#             */
-/*   Updated: 2026/10/06 12:16:16 by mohasnao         ###   ########.fr       */
+/*   Updated: 2026/10/10 02:13:03 by mohasnao         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	nb = 0;
 	signe = 1;
-	while (str[i] == ' ')
+	while (!ft_isalnum(str[i]) && str[i] != '-' && str[i] != '+' && str[i])
 		i++;
 	if (str[i] == '-')
 	{
@@ -30,7 +30,7 @@ int	ft_atoi(const char *str)
 	}
 	else if (str[i] == '+')
 		i++;
-	while (str[i] > '0' && str[i] < '9')
+	while (ft_isdigit(str[i]))
 	{
 		nb = nb * 10 + (str[i] - 48);
 		i++;

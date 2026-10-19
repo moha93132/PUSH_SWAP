@@ -6,13 +6,13 @@
 /*   By: mohasnao <mohasnao@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 12:17:19 by mohasnao          #+#    #+#             */
-/*   Updated: 2026/10/06 14:51:04 by mohasnao         ###   ########.ch       */
+/*   Updated: 2026/10/10 03:15:10 by mohasnao         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*min(int n)
+static char	*min(int n)
 {
 	char	*res;
 
@@ -32,7 +32,7 @@ char	*min(int n)
 	return (res);
 }
 
-int	len_num(int x)
+static int	len_num(int x)
 {
 	int	len;
 
