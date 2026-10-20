@@ -6,7 +6,7 @@
 /*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 15:12:10 by marco             #+#    #+#             */
-/*   Updated: 2026/10/20 10:24:11 by mluvisot         ###   ########.fr       */
+/*   Updated: 2026/10/20 10:54:17 by mluvisot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ void complex_algorithme(t_node **a, t_node **b)
 	int bit;
 
 	n = stack_size(*a);
-	init_radix(*a);
-	init_rank(*a, n);
 	nbr_bits = get_nbr_bits(n);
 	bit = 0;
 	while (bit < nbr_bits)
