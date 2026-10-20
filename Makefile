@@ -6,7 +6,7 @@
 #    By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/19 12:45:00 by mluvisot          #+#    #+#              #
-#    Updated: 2026/10/19 14:46:52 by mluvisot         ###   ########.fr        #
+#    Updated: 2026/10/20 10:28:49 by mluvisot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJ_DIR		= obj
 SRCS		= main.c \
 			$(SRC_DIR)/utils/utils.c \
 			$(SRC_DIR)/utils/parse.c \
-			$(SRC_DIR)/utils/push_swap.c \
+			$(SRC_DIR)/utils/init.c \
 			$(SRC_DIR)/operations/compute_dsorder.c \
 			$(SRC_DIR)/operations/operation_swap.c \
 			$(SRC_DIR)/operations/operation_push.c \

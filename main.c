@@ -6,37 +6,11 @@
 /*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 13:25:36 by mluvisot          #+#    #+#             */
-/*   Updated: 2026/10/19 14:44:15 by mluvisot         ###   ########.fr       */
+/*   Updated: 2026/10/20 10:24:40 by mluvisot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
-
-int ft_get_mod(int argc, char **argv, char *mode, int *bench)
-{
-	int i;
-
-	i = 1;
-	while (i < argc && ft_strncmp(argv[i], "--", 2) == 0)
-	{
-		if (ft_strncmp(argv[i], "--bench", 8) == 0 && !*bench)
-			*bench = 1;
-		else if (ft_strncmp(argv[i], "--simple", 9) == 0 && !*mode)
-			*mode = 's';
-		else if (ft_strncmp(argv[i], "--medium", 9) == 0 && !*mode)
-			*mode = 'm';
-		else if (ft_strncmp(argv[i], "--complex", 10) == 0 && !*mode)
-			*mode = 'c';
-		else if (ft_strncmp(argv[i], "--adaptive", 11) == 0 && !*mode)
-			*mode = 'a';
-		else
-			return (-1);
-		i++;
-	}
-	if (!*mode)
-		*mode = 'a';
-	return (i);
-}
 
 int main(int argc, char **argv)
 {

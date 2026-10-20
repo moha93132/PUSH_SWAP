@@ -1,8 +1,8 @@
 #include "../../includes/push_swap.h"
 
-static void	ft_put_disorder(double disorder)
+static void ft_put_disorder(double disorder)
 {
-	int	value;
+	int value;
 
 	value = (int)(disorder * 10000 + 0.5);
 	ft_putstr_fd("[bench] disorder: ", 2);
@@ -14,12 +14,24 @@ static void	ft_put_disorder(double disorder)
 	ft_putstr_fd("%\n", 2);
 }
 
-void	ft_print_bench(double disorder, char *strategy)
+int *ft_print_op(char *op, int id)
 {
-	char	*names;
-	int		*ops;
-	int		total;
-	int		i;
+	static int ops[11];
+
+	if (op)
+	{
+		write(1, op, ft_strlen(op));
+		ops[id]++;
+	}
+	return (ops);
+}
+
+void ft_print_bench(double disorder, char *strategy)
+{
+	char *names;
+	int *ops;
+	int total;
+	int i;
 
 	names = "sa  sb  ss  pa  pb  ra  rb  rr  rra rrb rrr ";
 	ops = ft_print_op(NULL, 0);

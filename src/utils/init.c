@@ -1,8 +1,7 @@
 
 #include "../../includes/push_swap.h"
-#include "../../includes/push_swap.h"
 
-static char	*ft_name(char mode, char algo)
+static char *ft_name(char mode, char algo)
 {
 	if (mode == 'a' && algo == 's')
 		return ("Adaptive -> Simple O(n^2)");
@@ -17,13 +16,43 @@ static char	*ft_name(char mode, char algo)
 	return ("Complex O(n log n)");
 }
 
-void	ft_start(char mode, int bench, t_node **a, t_node **b)
+void init_index(t_node *node)
 {
-	double	disorder;
-	char	algo;
+	while (node)
+	{
+		node->index = -1;
+		node = node->next;
+	}
+}
+void init_rank(t_node *a, int size)
+{
+	t_node *node;
+	t_node *min;
+	int rank;
+
+	rank = 0;
+	while (rank < size)
+	{
+		min = NULL;
+		node = a;
+		while (node)
+		{
+			if (node->index == -1 && (!min || node->value < min->value))
+				min = node;
+			node = node->next;
+		}
+		min->index = rank;
+		rank++;
+	}
+}
+
+void ft_start(char mode, int bench, t_node **a, t_node **b)
+{
+	double disorder;
+	char algo;
 
 	disorder = compute_disorder(*a);
-	init_radix(*a);
+	init_index(*a);
 	init_rank(*a, stack_size(*a));
 	algo = mode;
 	if (mode == 'a' && disorder < 0.2)
