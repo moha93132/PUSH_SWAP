@@ -28,11 +28,11 @@ static int ft_push(t_node **src, t_node **dst)
 void pa(t_node **a, t_node **b)
 {
 	if (ft_push(b, a))
-		write(1, "pa\n", 3);
+		ft_print_op("pa\n", 3);
 }
 
 void pb(t_node **a, t_node **b)
 {
 	if (ft_push(a, b))
-		write(1, "pb\n", 3);
+		ft_print_op("pb\n", 4);
 }

@@ -32,13 +32,13 @@ static int ft_rotate(t_node **stack)
 void ra(t_node **a)
 {
 	if (ft_rotate(a))
-		write(1, "ra\n", 3);
+		ft_print_op("ra\n", 5);
 }
 
 void rb(t_node **b)
 {
 	if (ft_rotate(b))
-		write(1, "rb\n", 3);
+		ft_print_op("rb\n", 6);
 }
 
 void rr(t_node **a, t_node **b)
@@ -49,5 +49,5 @@ void rr(t_node **a, t_node **b)
 	rotate_a = ft_rotate(a);
 	rotate_b = ft_rotate(b);
 	if (rotate_a || rotate_b)
-		write(1, "rr\n", 3);
+		 ft_print_op("rr\n", 7);
 }

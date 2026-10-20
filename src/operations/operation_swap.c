@@ -30,13 +30,13 @@ static int ft_swap(t_node **stack)
 void sa(t_node **a)
 {
 	if (ft_swap(a))
-		write(1, "sa\n", 3);
+		ft_print_op("sa\n", 0);
 }
 
 void sb(t_node **b)
 {
 	if (ft_swap(b))
-		write(1, "sb\n", 3);
+		ft_print_op("sb\n", 1);
 }
 
 void ss(t_node **a, t_node **b)
@@ -47,5 +47,5 @@ void ss(t_node **a, t_node **b)
 	swap_a = ft_swap(a);
 	swap_b = ft_swap(b);
 	if (swap_a || swap_b)
-		write(1, "ss\n", 3);
+		 ft_print_op("ss\n", 2);
 }

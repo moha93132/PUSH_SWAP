@@ -38,11 +38,13 @@ int ft_has_dup(t_node *a, int value);
 int ft_init(t_node **a, int argc, char **argv, int start);
 
 /* utils/push_swap.c */
-void ft_start(char mode, t_node **a, t_node **b);
-void ft_call_algo(int disorder, t_node **a, t_node **b);
+void	ft_start(char mode, int bench, t_node **a, t_node **b);
+void	ft_print_bench(double disorder, char *strategy);
+
 
 /* operations/compute_dsorder.c */
-int compute_disorder(t_node *a, int n);
+double	compute_disorder(t_node *a);
+int		*ft_print_op(char *op, int id);
 int ft_error(void);
 void ft_free_stack(t_node **stack);
 

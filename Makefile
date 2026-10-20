@@ -33,7 +33,9 @@ SRCS		= main.c \
 			$(SRC_DIR)/operations/operations_reverse_rotate.c \
 			$(SRC_DIR)/algo/algorithme_simple.c \
 			$(SRC_DIR)/algo/algorithme_moyen.c \
+			$(SRC_DIR)/utils/bench.c \
 			$(SRC_DIR)/algo/algorithme_complex.c
+			
 
 OBJS		= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 

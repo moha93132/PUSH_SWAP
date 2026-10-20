@@ -12,26 +12,43 @@
 
 #include "../../includes/push_swap.h"
 
-int compute_disorder(t_node *a, int n)
+double	compute_disorder(t_node *a)
 {
-	t_node *cmp;
-	long mistakes;
-	long total_pairs;
+	t_node	*i;
+	t_node	*j;
+	long	mistakes;
+	long	total_pairs;
 
-	if (n < 2)
-		return (0);
 	mistakes = 0;
 	total_pairs = 0;
-	cmp = a->next;
-	while (cmp)
+	i = a;
+	while (i)
 	{
-		if (a->value > cmp->value)
-			mistakes++;
-		total_pairs++;
-		a = a->next;
-		cmp = a->next;
+		j = i->next;
+		while (j)
+		{
+			total_pairs++;
+			if (i->value > j->value)
+				mistakes++;
+			j = j->next;
+		}
+		i = i->next;
 	}
-	return ((int)(mistakes * 100 / total_pairs));
+	if (total_pairs == 0)
+		return (0.0);
+	return ((double)mistakes / (double)total_pairs);
+}
+
+int	*ft_print_op(char *op, int id)
+{
+	static int	ops[11];
+
+	if (op)
+	{
+		write(1, op, ft_strlen(op));
+		ops[id]++;
+	}
+	return (ops);
 }
 
 int ft_error(void)

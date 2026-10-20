@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 	b = NULL;
 	if (ft_init(&a, argc, argv, i))
 		return (1);
-	ft_start(mode, &a, &b);
+	ft_start(mode, bench, &a, &b);
 	ft_free_stack(&a);
 	ft_free_stack(&b);
 	return (0);
