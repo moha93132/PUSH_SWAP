@@ -27,6 +27,8 @@ long ft_atol(char *s)
 	return (res * sign);
 }
 
+
+
 int ft_is_number(char *s)
 {
 	int i;

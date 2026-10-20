@@ -1,7 +1,6 @@
-
 #include "../../includes/push_swap.h"
 
-static char *ft_name(char mode, char algo)
+static char	*ft_name(char mode, char algo)
 {
 	if (mode == 'a' && algo == 's')
 		return ("Adaptive -> Simple O(n^2)");
@@ -16,7 +15,18 @@ static char *ft_name(char mode, char algo)
 	return ("Complex O(n log n)");
 }
 
-void init_index(t_node *node)
+static int	is_sorted(t_node *a)
+{
+	while (a && a->next)
+	{
+		if (a->value > a->next->value)
+			return (0);
+		a = a->next;
+	}
+	return (1);
+}
+
+void	init_index(t_node *node)
 {
 	while (node)
 	{
@@ -24,11 +34,12 @@ void init_index(t_node *node)
 		node = node->next;
 	}
 }
-void init_rank(t_node *a, int size)
+
+void	init_rank(t_node *a, int size)
 {
-	t_node *node;
-	t_node *min;
-	int rank;
+	t_node	*node;
+	t_node	*min;
+	int		rank;
 
 	rank = 0;
 	while (rank < size)
@@ -46,10 +57,10 @@ void init_rank(t_node *a, int size)
 	}
 }
 
-void ft_start(char mode, int bench, t_node **a, t_node **b)
+void	ft_start(char mode, int bench, t_node **a, t_node **b)
 {
-	double disorder;
-	char algo;
+	double	disorder;
+	char	algo;
 
 	disorder = compute_disorder(*a);
 	init_index(*a);
@@ -61,12 +72,15 @@ void ft_start(char mode, int bench, t_node **a, t_node **b)
 		algo = 'm';
 	else if (mode == 'a')
 		algo = 'c';
-	if (algo == 's')
-		simple_algorithme(a, b);
-	else if (algo == 'm')
-		medium_algorithme(a, b);
-	else
-		complex_algorithme(a, b);
+	if (!is_sorted(*a))
+	{
+		if (algo == 's')
+			simple_algorithme(a, b);
+		else if (algo == 'm')
+			medium_algorithme(a, b);
+		else
+			complex_algorithme(a, b);
+	}
 	if (bench)
 		ft_print_bench(disorder, ft_name(mode, algo));
 }
