@@ -6,19 +6,19 @@
 /*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 13:25:36 by mluvisot          #+#    #+#             */
-/*   Updated: 2026/10/20 10:24:40 by mluvisot         ###   ########.fr       */
+/*   Updated: 2026/10/20 20:36:53 by mohasnao         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_node *a;
-	t_node *b;
-	char mode;
-	int bench;
-	int i;
+	t_node	*a;
+	t_node	*b;
+	char	mode;
+	int		bench;
+	int		i;
 
 	if (argc < 2)
 		return (0);

@@ -6,15 +6,15 @@
 /*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 12:05:23 by mohasnao          #+#    #+#             */
-/*   Updated: 2026/10/19 15:51:40 by mluvisot         ###   ########.fr       */
+/*   Updated: 2026/10/20 20:49:14 by mohasnao         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int stack_size(t_node *a)
+int	stack_size(t_node *a)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	while (a)
@@ -25,9 +25,9 @@ int stack_size(t_node *a)
 	return (size);
 }
 
-int find_index_position(t_node *a, int index)
+int	find_index_position(t_node *a, int index)
 {
-	int position;
+	int	position;
 
 	position = 0;
 	while (a)
@@ -40,11 +40,11 @@ int find_index_position(t_node *a, int index)
 	return (-1);
 }
 
-void simple_algorithme(t_node **a, t_node **b)
+void	simple_algorithme(t_node **a, t_node **b)
 {
-	int index;
-	int position;
-	int size_a;
+	int	index;
+	int	position;
+	int	size_a;
 
 	index = 0;
 	while (*a)

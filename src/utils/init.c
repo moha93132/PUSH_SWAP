@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohasnao <mohasnao@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/20 20:48:45 by mohasnao          #+#    #+#             */
+/*   Updated: 2026/10/20 20:48:46 by mohasnao         ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 static char	*ft_name(char mode, char algo)
@@ -60,27 +72,27 @@ void	init_rank(t_node *a, int size)
 void	ft_start(char mode, int bench, t_node **a, t_node **b)
 {
 	double	disorder;
-	char	algo;
 
 	disorder = compute_disorder(*a);
+	if (disorder == 0)
+		return ;
 	init_index(*a);
 	init_rank(*a, stack_size(*a));
-	algo = mode;
-	if (mode == 'a' && disorder < 0.2)
-		algo = 's';
-	else if (mode == 'a' && disorder < 0.5)
-		algo = 'm';
-	else if (mode == 'a')
-		algo = 'c';
-	if (!is_sorted(*a))
+	if (stack_size(*a) == 2 && (*a)->value > (*a)->next->value)
+		sa(a);
+	else if (stack_size(*a) == 3)
+		sort_three(a);
+	else if (stack_size(*a) == 5)
+		sort_five(a, b);
+	else if (!is_sorted(*a))
 	{
-		if (algo == 's')
+		if (conditions(mode, disorder) == 's')
 			simple_algorithme(a, b);
-		else if (algo == 'm')
+		else if (conditions(mode, disorder) == 'm')
 			medium_algorithme(a, b);
 		else
 			complex_algorithme(a, b);
 	}
 	if (bench)
-		ft_print_bench(disorder, ft_name(mode, algo));
+		ft_print_bench(disorder, ft_name(mode, conditions(mode, disorder)));
 }

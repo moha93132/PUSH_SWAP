@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohasnao <mohasnao@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/20 20:48:56 by mohasnao          #+#    #+#             */
+/*   Updated: 2026/10/20 20:48:57 by mohasnao         ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
-long ft_atol(char *s)
+long	ft_atol(char *s)
 {
-	long res;
-	int sign;
-	int i;
+	long	res;
+	int		sign;
+	int		i;
 
 	res = 0;
 	sign = 1;
@@ -27,11 +39,9 @@ long ft_atol(char *s)
 	return (res * sign);
 }
 
-
-
-int ft_is_number(char *s)
+int	ft_is_number(char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (s[i] == '-' || s[i] == '+')
@@ -47,9 +57,9 @@ int ft_is_number(char *s)
 	return (1);
 }
 
-int ft_get_mod(int argc, char **argv, char *mode, int *bench)
+int	ft_get_mod(int argc, char **argv, char *mode, int *bench)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (i < argc && ft_strncmp(argv[i], "--", 2) == 0)
@@ -73,19 +83,19 @@ int ft_get_mod(int argc, char **argv, char *mode, int *bench)
 	return (i);
 }
 
-int ft_error(void)
+int	ft_error(void)
 {
 	ft_putstr_fd("Error\n", 2);
 	return (1);
 }
 
-void ft_free_stack(t_node **stack)
+void	ft_free_stack(t_node **stack)
 {
-	t_node *current;
-	t_node *next;
+	t_node	*current;
+	t_node	*next;
 
 	if (!stack)
-		return;
+		return ;
 	current = *stack;
 	while (current)
 	{

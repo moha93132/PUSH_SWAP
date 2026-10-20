@@ -6,15 +6,15 @@
 /*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 15:12:10 by marco             #+#    #+#             */
-/*   Updated: 2026/10/20 10:54:17 by mluvisot         ###   ########.fr       */
+/*   Updated: 2026/10/20 20:49:14 by mohasnao         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static int get_nbr_bits(int n)
+static int	get_nbr_bits(int n)
 {
-	int bits;
+	int	bits;
 
 	bits = 0;
 	while (((n - 1) >> bits) != 0)
@@ -22,9 +22,9 @@ static int get_nbr_bits(int n)
 	return (bits);
 }
 
-void radix_pass(t_node **a, t_node **b, int n, int bit)
+void	radix_pass(t_node **a, t_node **b, int n, int bit)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < n)
@@ -39,11 +39,11 @@ void radix_pass(t_node **a, t_node **b, int n, int bit)
 		pa(a, b);
 }
 
-void complex_algorithme(t_node **a, t_node **b)
+void	complex_algorithme(t_node **a, t_node **b)
 {
-	int n;
-	int nbr_bits;
-	int bit;
+	int	n;
+	int	nbr_bits;
+	int	bit;
 
 	n = stack_size(*a);
 	nbr_bits = get_nbr_bits(n);

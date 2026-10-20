@@ -6,7 +6,7 @@
 #    By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/19 12:45:00 by mluvisot          #+#    #+#              #
-#    Updated: 2026/10/20 10:28:49 by mluvisot         ###   ########.fr        #
+#    Updated: 2026/10/20 15:36:33 by mohasnao         ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ SRCS		= main.c \
 			$(SRC_DIR)/algo/algorithme_simple.c \
 			$(SRC_DIR)/algo/algorithme_moyen.c \
 			$(SRC_DIR)/utils/bench.c \
-			$(SRC_DIR)/algo/algorithme_complex.c
+			$(SRC_DIR)/algo/algorithme_complex.c \
+			$(SRC_DIR)/algo/algorithme_plist.c
 			
 
 OBJS		= $(SRCS:%.c=$(OBJ_DIR)/%.o)

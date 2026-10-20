@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bench.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohasnao <mohasnao@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/20 20:48:51 by mohasnao          #+#    #+#             */
+/*   Updated: 2026/10/20 20:48:52 by mohasnao         ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
-static void ft_put_disorder(double disorder)
+static void	ft_put_disorder(double disorder)
 {
-	int value;
+	int	value;
 
 	value = (int)(disorder * 10000 + 0.5);
 	ft_putstr_fd("[bench] disorder: ", 2);
@@ -14,9 +26,9 @@ static void ft_put_disorder(double disorder)
 	ft_putstr_fd("%\n", 2);
 }
 
-int *ft_print_op(char *op, int id)
+int	*ft_print_op(char *op, int id)
 {
-	static int ops[11];
+	static int	ops[11];
 
 	if (op)
 	{
@@ -26,12 +38,12 @@ int *ft_print_op(char *op, int id)
 	return (ops);
 }
 
-void ft_print_bench(double disorder, char *strategy)
+void	ft_print_bench(double disorder, char *strategy)
 {
-	char *names;
-	int *ops;
-	int total;
-	int i;
+	char	*names;
+	int		*ops;
+	int		total;
+	int		i;
 
 	names = "sa  sb  ss  pa  pb  ra  rb  rr  rra rrb rrr ";
 	ops = ft_print_op(NULL, 0);
