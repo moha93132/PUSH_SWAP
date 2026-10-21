@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohasnao <mohasnao@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 20:48:45 by mohasnao          #+#    #+#             */
-/*   Updated: 2026/10/20 20:48:46 by mohasnao         ###   ########.ch       */
+/*   Updated: 2026/10/21 14:48:11 by mluvisot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static char	*ft_name(char mode, char algo)
+static char *ft_name(char mode, char algo)
 {
 	if (mode == 'a' && algo == 's')
 		return ("Adaptive -> Simple O(n^2)");
@@ -27,18 +27,7 @@ static char	*ft_name(char mode, char algo)
 	return ("Complex O(n log n)");
 }
 
-static int	is_sorted(t_node *a)
-{
-	while (a && a->next)
-	{
-		if (a->value > a->next->value)
-			return (0);
-		a = a->next;
-	}
-	return (1);
-}
-
-void	init_index(t_node *node)
+void init_index(t_node *node)
 {
 	while (node)
 	{
@@ -47,11 +36,11 @@ void	init_index(t_node *node)
 	}
 }
 
-void	init_rank(t_node *a, int size)
+void init_rank(t_node *a, int size)
 {
-	t_node	*node;
-	t_node	*min;
-	int		rank;
+	t_node *node;
+	t_node *min;
+	int rank;
 
 	rank = 0;
 	while (rank < size)
@@ -69,30 +58,35 @@ void	init_rank(t_node *a, int size)
 	}
 }
 
-void	ft_start(char mode, int bench, t_node **a, t_node **b)
+static void sort_small(t_node **a, t_node **b, int size)
 {
-	double	disorder;
+	if (size == 2)
+		sa(a);
+	else if (size == 3)
+		sort_three(a);
+	else
+		sort_five(a, b);
+}
+
+void ft_start(char mode, int bench, t_node **a, t_node **b)
+{
+	double disorder;
+	char algo;
+	int size;
 
 	disorder = compute_disorder(*a);
-	if (disorder == 0)
-		return ;
+	algo = conditions(mode, disorder);
+	size = stack_size(*a);
 	init_index(*a);
-	init_rank(*a, stack_size(*a));
-	if (stack_size(*a) == 2 && (*a)->value > (*a)->next->value)
-		sa(a);
-	else if (stack_size(*a) == 3)
-		sort_three(a);
-	else if (stack_size(*a) == 5)
-		sort_five(a, b);
-	else if (!is_sorted(*a))
-	{
-		if (conditions(mode, disorder) == 's')
-			simple_algorithme(a, b);
-		else if (conditions(mode, disorder) == 'm')
-			medium_algorithme(a, b);
-		else
-			complex_algorithme(a, b);
-	}
+	init_rank(*a, size);
+	if (disorder > 0 && mode == 'a' && size <= 5)
+		sort_small(a, b, size);
+	else if (disorder > 0 && algo == 's')
+		simple_algorithme(a, b);
+	else if (disorder > 0 && algo == 'm')
+		medium_algorithme(a, b);
+	else if (disorder > 0)
+		complex_algorithme(a, b);
 	if (bench)
-		ft_print_bench(disorder, ft_name(mode, conditions(mode, disorder)));
+		ft_print_bench(disorder, ft_name(mode, algo));
 }
