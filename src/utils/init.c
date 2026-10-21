@@ -6,13 +6,13 @@
 /*   By: mluvisot <mluvisot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 20:48:45 by mohasnao          #+#    #+#             */
-/*   Updated: 2026/10/21 14:48:11 by mluvisot         ###   ########.fr       */
+/*   Updated: 2026/10/21 14:59:56 by mluvisot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static char *ft_name(char mode, char algo)
+static	char	*ft_name(char mode, char algo)
 {
 	if (mode == 'a' && algo == 's')
 		return ("Adaptive -> Simple O(n^2)");
@@ -27,7 +27,7 @@ static char *ft_name(char mode, char algo)
 	return ("Complex O(n log n)");
 }
 
-void init_index(t_node *node)
+void	init_index(t_node *node)
 {
 	while (node)
 	{
@@ -36,11 +36,11 @@ void init_index(t_node *node)
 	}
 }
 
-void init_rank(t_node *a, int size)
+void	init_rank(t_node *a, int size)
 {
-	t_node *node;
-	t_node *min;
-	int rank;
+	t_node	*node;
+	t_node	*min;
+	int		rank;
 
 	rank = 0;
 	while (rank < size)
@@ -58,7 +58,7 @@ void init_rank(t_node *a, int size)
 	}
 }
 
-static void sort_small(t_node **a, t_node **b, int size)
+static void	sort_small(t_node **a, t_node **b, int size)
 {
 	if (size == 2)
 		sa(a);
@@ -68,11 +68,11 @@ static void sort_small(t_node **a, t_node **b, int size)
 		sort_five(a, b);
 }
 
-void ft_start(char mode, int bench, t_node **a, t_node **b)
+void	ft_start(char mode, int bench, t_node **a, t_node **b)
 {
-	double disorder;
-	char algo;
-	int size;
+	double	disorder;
+	char	algo;
+	int		size;
 
 	disorder = compute_disorder(*a);
 	algo = conditions(mode, disorder);
